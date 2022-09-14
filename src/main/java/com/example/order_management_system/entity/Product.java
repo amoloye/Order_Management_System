@@ -17,7 +17,7 @@ import javax.validation.constraints.NotNull;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    long ProductId;
+    long productId;
 
     @NotBlank(message = "please input product name")
     @Min(1)

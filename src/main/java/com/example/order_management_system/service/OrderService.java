@@ -1,7 +1,15 @@
 package com.example.order_management_system.service;
 
-import org.springframework.stereotype.Service;
+import com.example.order_management_system.dto.OrderDto;
+import com.example.order_management_system.entity.Order;
 
-@Service
+import java.time.LocalDateTime;
+import java.util.List;
+
+
 public interface OrderService {
+
+    Order createOrder (OrderDto orderDto);
+
+    List<Order> getOrdersByDate (LocalDateTime submissionDate, int offset, int pageSize);
 }

@@ -9,7 +9,7 @@ import lombok.ToString;
 @Builder
 @ToString
 public class OrderLineDto {
-    long OrderLineId;
+    private long OrderLineId;
     private String productDto;
     private long quantity;
 }

@@ -6,7 +6,9 @@ import com.example.order_management_system.mapper.CustomerMapper;
 import com.example.order_management_system.repository.CustomerRepository;
 import com.example.order_management_system.service.CustomerService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
+@Service
 @RequiredArgsConstructor
 public class CustomerServiceImpl implements CustomerService {
     private final CustomerRepository customerRepository;

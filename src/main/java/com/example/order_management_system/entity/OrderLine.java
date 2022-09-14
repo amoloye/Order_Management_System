@@ -15,7 +15,7 @@ import javax.validation.constraints.Min;
 public class OrderLine {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    long OrderLineId;
+    long orderLineId;
     @OneToOne
     @JoinColumn(name = "product_id")
     private Product product;

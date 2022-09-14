@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+
 import java.util.List;
 
 @Entity
@@ -14,22 +15,24 @@ import java.util.List;
 @ToString
 @Table(name = "order")
 public class Order {
+    public Order (List<OrderLine> orderLineList, Customer customer) {
+        this.orderLineList = orderLineList;
+        this.customer = customer;
+        this.submissionDate=LocalDateTime.now();
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long OrderId;
+    private long orderId;
 
     @ManyToMany
     @JoinColumn(name = "orderLine_id")
-    private List<OrderLine> orderLine;
+    private List<OrderLine> orderLineList;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(name = "customers_id")
     private Customer customer;
 
     private LocalDateTime submissionDate;
 
-    public void setSubmissionDate (LocalDateTime submissionDate) {
-        this.submissionDate = LocalDateTime.now();
-    }
 }

@@ -1,11 +1,11 @@
 package com.example.order_management_system.service;
 
+import com.example.order_management_system.dto.ProductDto;
 import com.example.order_management_system.entity.Product;
-import org.springframework.stereotype.Service;
 
-@Service
+
 public interface ProductService {
-    Product create (Product product);
+    Product create (ProductDto productDto);
 
-    Product getProduct (String productName);
+    Product getProduct (ProductDto productDto);
 }

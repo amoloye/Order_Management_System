@@ -8,7 +8,7 @@ import lombok.ToString;
 @Builder
 @ToString
 public class ProductDto {
-    long ProductId;
+    private long productId;
     private String productName;
     private long skuCode;
     private double unitPrice;
