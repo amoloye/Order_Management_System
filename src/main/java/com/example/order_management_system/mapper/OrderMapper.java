@@ -4,6 +4,7 @@ import com.example.order_management_system.dto.OrderDto;
 import com.example.order_management_system.entity.Order;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
+import org.mapstruct.MappingTarget;
 import org.mapstruct.factory.Mappers;
 
 @Mapper
@@ -13,6 +14,7 @@ public interface OrderMapper {
 
     Order orderDtoToOrder (OrderDto orderDto);
 
-    @InheritInverseConfiguration
+    Order orderDtoToOrder (OrderDto orderDto, @MappingTarget Order order);
+
     OrderDto orderToOrderDto (Order order);
 }

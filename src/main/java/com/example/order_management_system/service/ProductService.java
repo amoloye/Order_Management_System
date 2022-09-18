@@ -7,5 +7,5 @@ import com.example.order_management_system.entity.Product;
 public interface ProductService {
     Product create (ProductDto productDto);
 
-    Product getProduct (ProductDto productDto);
+    Product getProduct (ProductDto productDto) throws Exception;
 }

@@ -1,6 +1,7 @@
 package com.example.order_management_system.entity;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -15,24 +16,22 @@ import java.util.List;
 @ToString
 @Table(name = "order")
 public class Order {
-    public Order (List<OrderLine> orderLineList, Customer customer) {
-        this.orderLineList = orderLineList;
-        this.customer = customer;
-        this.submissionDate=LocalDateTime.now();
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long orderId;
 
-    @ManyToMany
-    @JoinColumn(name = "orderLine_id")
+    @OneToMany
+    @JoinColumn(name = "orderLineId")
     private List<OrderLine> orderLineList;
 
     @ManyToOne
-    @JoinColumn(name = "customers_id")
+    @JoinColumn(name = "customersId")
     private Customer customer;
 
+
+    @Column(name = "submission_date",updatable = false)
     private LocalDateTime submissionDate;
+
 
 }

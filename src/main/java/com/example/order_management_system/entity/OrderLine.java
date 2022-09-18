@@ -1,5 +1,6 @@
 package com.example.order_management_system.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -16,10 +17,17 @@ public class OrderLine {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     long orderLineId;
+
     @OneToOne
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "productId")
     private Product product;
 
     @Min(1)
     private long quantity;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "orderId")
+    private Order order;
+
 }

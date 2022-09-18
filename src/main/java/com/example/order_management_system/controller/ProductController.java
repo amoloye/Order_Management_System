@@ -21,7 +21,7 @@ public class ProductController {
     }
 
     @GetMapping("/product")
-    public ResponseEntity<Product> getProduct(@RequestBody ProductDto productDto){
+    public ResponseEntity<Product> getProduct(@RequestBody ProductDto productDto) throws Exception {
         return ResponseEntity.ok().body( productService.getProduct(productDto));
     }
 }

@@ -4,6 +4,7 @@ import com.example.order_management_system.dto.OrderLineDto;
 import com.example.order_management_system.entity.OrderLine;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
+import org.mapstruct.MappingTarget;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
@@ -13,7 +14,8 @@ public interface OrderLineMapper {
 
 
     List<OrderLine> orderLineDtoToOrderLine (List<OrderLineDto> orderLineDtoList);
+    List<OrderLine> orderLineDtoToOrderLine
+            (List<OrderLineDto> orderLineDtoList, @MappingTarget List<OrderLine> orderLineList );
 
-    @InheritInverseConfiguration
     List<OrderLineDto> orderLineToOrderLineDto (List<OrderLine> orderLineList);
 }

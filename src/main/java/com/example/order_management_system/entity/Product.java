@@ -1,5 +1,6 @@
 package com.example.order_management_system.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -28,5 +29,10 @@ public class Product {
 
     @NotNull
     private double unitPrice;
+
+    @JsonIgnore
+    @OneToOne
+    @JoinColumn(name = "orderLineId")
+    private OrderLine orderLine;
 
 }

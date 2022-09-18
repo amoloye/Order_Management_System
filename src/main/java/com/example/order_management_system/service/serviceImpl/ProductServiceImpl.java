@@ -20,8 +20,9 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product getProduct (ProductDto productDto) {
+    public Product getProduct (ProductDto productDto) throws Exception {
        String productName= productDto.getProductName(); //exception
-        return productRepository.findByProductNameIgnoreCase(productName);
+        return productRepository.findByProductNameIgnoreCase(productName)
+                .orElseThrow(()-> new Exception("No Product Found"));
     }
 }

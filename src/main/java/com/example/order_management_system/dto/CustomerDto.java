@@ -1,11 +1,13 @@
 package com.example.order_management_system.dto;
 
 
+import com.example.order_management_system.entity.Order;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
-import lombok.ToString;
 
-@Data @Builder @ToString
+
+@Data @Builder
 public class CustomerDto {
     private long customerId;
     private long registrationCode;
@@ -13,4 +15,7 @@ public class CustomerDto {
     private String surname;
     private String email;
     private long telephone;
+
+    @JsonIgnore
+    private OrderDto orderDto;
 }

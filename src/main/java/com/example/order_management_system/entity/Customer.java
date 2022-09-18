@@ -1,5 +1,6 @@
 package com.example.order_management_system.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 
@@ -36,5 +37,10 @@ public class Customer {
 
     @NotNull(message = "please input telephone number")
     private long telephone;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "orderId")
+    private Order order;
 
 }
